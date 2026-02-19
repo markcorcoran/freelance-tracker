@@ -615,6 +615,8 @@ export default function FreelanceTracker() {
         @keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
         input[type="date"]::-webkit-calendar-picker-indicator { filter: ${t.datePicker}; }
         ::-webkit-scrollbar { width:4px; } ::-webkit-scrollbar-thumb { background:${t.scrollThumb}; border-radius:4px; }
+        input, select, textarea { -webkit-appearance: none; font-family: 'DM Sans', sans-serif; }
+        @media (max-width: 600px) { input, select, textarea { font-size: 16px !important; } }
       `}</style>
 
       {/* Edit Panel Overlay */}
@@ -627,7 +629,7 @@ export default function FreelanceTracker() {
           <div onClick={(e) => e.stopPropagation()} style={{
             width: "100%", maxWidth: 560, background: t.editPanel,
             borderRadius: "20px 20px 0 0", border: `1px solid ${t.editPanelBorder}`,
-            borderBottom: "none", padding: "24px 20px 32px",
+            borderBottom: "none", padding: "20px 16px 28px",
             animation: "slideUp 0.2s ease",
           }}>
             <div style={{ width: 36, height: 4, borderRadius: 2, background: t.inputBorder, margin: "0 auto 18px" }} />
@@ -828,9 +830,9 @@ export default function FreelanceTracker() {
               {!showAddEntry ? (
                 <button onClick={() => setShowAddEntry(true)} style={{
                   width: "100%", padding: "12px", borderRadius: 10,
-                  border: `1px dashed ${t.dashed}`, background: "transparent",
-                  color: t.textFaint, fontSize: 12, fontFamily: "'DM Sans', sans-serif",
-                  cursor: "pointer", fontWeight: 500,
+                  border: `1px solid ${t.addBorder}`, background: t.accent + "0d",
+                  color: t.accent, fontSize: 13, fontFamily: "'DM Sans', sans-serif",
+                  cursor: "pointer", fontWeight: 600,
                 }}>+ Add time manually</button>
               ) : (
                 <div style={{
